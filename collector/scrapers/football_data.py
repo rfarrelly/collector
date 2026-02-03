@@ -20,12 +20,20 @@ class FootballDataScraper:
         url = self.build_url(league, season)
         df = pd.read_csv(url, encoding="latin-1").copy()
         df = df.assign(League=league.name, Season=season)
+
+        df["Date"] = pd.to_datetime(df["Date"], format="%d/%m/%Y")
+        df["Week"] = df["Date"].dt.isocalendar().week
+        df["Day"] = df["Date"].dt.day_name()
+        df["Date"] = df["Date"].dt.strftime("%Y-%m-%d")
+
         df = df[
             [
                 "League",
                 "Season",
                 "Date",
                 "Time",
+                "Day",
+                "Week",
                 "HomeTeam",
                 "AwayTeam",
                 "FTHG",
@@ -37,8 +45,4 @@ class FootballDataScraper:
             ]
         ]
 
-        df["Date"] = pd.to_datetime(df["Date"], format="%d/%m/%Y").dt.strftime(
-            "%Y-%m-%d"
-        )
-
-        return df
+        return df.sort_values("Date")
