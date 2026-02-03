@@ -2,12 +2,21 @@ output_root: data/DATA
 
 jobs:
   - source: football-data
-    league: Championship
-    seasons:
-      - 2425
-      - 2324
-
-  - source: football-data
     league: Premier-League
     seasons:
+      - 2526
       - 2425
+      - 2324
+      - 2223
+      - 2122
+
+  - source: football-data
+    league: Championship
+    seasons:
+      - 2526
+      - 2425
+      - 2324
+      - 2223
+      - 2122
+
+  

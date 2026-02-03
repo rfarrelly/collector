@@ -19,7 +19,7 @@ class FootballDataScraper:
     def fetch(self, league, season):
         url = self.build_url(league, season)
         df = pd.read_csv(url, encoding="latin-1")
-        df["League"] = league
+        df["League"] = league.name
         df = df[
             [
                 "League",
