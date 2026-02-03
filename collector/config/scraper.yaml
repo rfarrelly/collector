@@ -1,4 +1,4 @@
-output_root: data/DATA
+output_root: DATA
 
 jobs:
   - source: football-data

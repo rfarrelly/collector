@@ -24,3 +24,4 @@ for job in jobs:
         path = storage.target_path(source.name, league.name, season)
         path.parent.mkdir(parents=True, exist_ok=True)
         data.to_csv(path, index=False)
+        print(f"{source.name}: {league.name} {season} saved to {path}")

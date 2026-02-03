@@ -18,11 +18,12 @@ class FootballDataScraper:
 
     def fetch(self, league, season):
         url = self.build_url(league, season)
-        df = pd.read_csv(url, encoding="latin-1")
-        df["League"] = league.name
+        df = pd.read_csv(url, encoding="latin-1").copy()
+        df = df.assign(League=league.name, Season=season)
         df = df[
             [
                 "League",
+                "Season",
                 "Date",
                 "Time",
                 "HomeTeam",
