@@ -5,5 +5,4 @@ class Source(BaseModel):
     name: str
     base_url: str
     file_pattern: str
-    league_code_field: str
-    season_format: str
+    # season_format: str

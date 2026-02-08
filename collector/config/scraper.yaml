@@ -19,4 +19,13 @@ jobs:
       - 2223
       - 2122
 
-  
+
+  - source: soccerstats
+    league: Premier-League
+    seasons:
+      - latest
+
+  - source: soccerstats
+    league: Championship
+    seasons:
+      - latest

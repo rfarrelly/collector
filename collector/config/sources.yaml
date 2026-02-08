@@ -1,5 +1,9 @@
 football-data:
   base_url: https://www.football-data.co.uk/mmz4281
   file_pattern: "{season}/{league_code}.csv"
-  league_code_field: code
-  season_format: "YYZZ"   # 2425, 2324 etc
+  # season_format: "YYZZ"
+
+soccerstats:
+  base_url: https://www.soccerstats.com
+  file_pattern: "" # Unused by logic, but required by model schema
+  # season_format: "YYYY"
