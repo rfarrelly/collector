@@ -22,7 +22,7 @@ mappings = {}
 mapping_dir = Path("collector/config/mappings")
 
 
-def run_scraper(source_name: str, season: str = None):
+def run_scraper(source_name: str, season_id: str = None):
     mapping_file = mapping_dir / f"{source_name}.yaml"
     if mapping_file.exists():
         with open(mapping_file) as f:
@@ -55,7 +55,9 @@ def run_scraper(source_name: str, season: str = None):
             print(f"[SKIP] {league.name}: No mapping ID found for source {source.name}")
             continue
 
-        seasons = [season] if (season and season in job.seasons) else job.seasons
+        seasons = (
+            [season_id] if (season_id and season_id in job.seasons) else job.seasons
+        )
 
         for season in seasons:
             try:
@@ -75,17 +77,17 @@ def run_scraper(source_name: str, season: str = None):
 
 
 def main():
-    if len(sys.argv) > 2:
-        source = sys.argv[1]
-        if source not in [s for s in sources.keys()]:
+    if len(sys.argv) > 1:
+        data_source = sys.argv[1]
+        if data_source not in [s for s in sources.keys()]:
             print(f"[FAIL] Invalid source")
             return 0
 
     # Commands
     if len(sys.argv) == 2:
-        run_scraper(source_name=source)
+        run_scraper(source_name=data_source)
     elif len(sys.argv) == 3:
-        run_scraper(source_name=source, season=sys.argv[2])
+        run_scraper(source_name=data_source, season_id=sys.argv[2])
     else:
         print(f"[WARN] Unknown command")
 

@@ -4,4 +4,56 @@ Premier-League:
 Championship:
   country: England
 
+League-One:
+  country: England
 
+League-Two:
+  country: England
+
+National-League:
+  country: England
+
+Belgian-Pro-League: 
+  country: Belgium
+
+Bundesliga: 
+  country: Germany
+
+2-Bundesliga: 
+  country: Germany
+
+La-Liga: 
+  country: Spain
+
+Segunda-Division: 
+  country: Spain
+
+Ligue-1: 
+  country: France
+
+Ligue-2: 
+  country: France
+
+Super-League-Greece: 
+  country: Greece
+
+Eredivisie: 
+  country: Netherlands
+
+Serie-A: 
+  country: Italy
+
+Serie-B: 
+  country: Italy
+
+Primeira-Liga: 
+  country: Portugal
+
+Scottish-Premiership: 
+  country: Scotland
+
+Scottish-Championship: 
+  country: scotland
+
+Super-Lig: 
+  country: Turkey

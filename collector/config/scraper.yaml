@@ -1,25 +1,96 @@
 output_root: DATA
 
+common:
+  football_data_seasons: &football_data_seasons
+    - 2526
+    - 2425
+    - 2324
+    - 2223
+    - 2122
+
+# FOOTBALL-DATA.CO.UK
 jobs:
   - source: football-data
     league: Premier-League
-    seasons:
-      - 2526
-      - 2425
-      - 2324
-      - 2223
-      - 2122
-
+    seasons: *football_data_seasons
+  
   - source: football-data
     league: Championship
-    seasons:
-      - 2526
-      - 2425
-      - 2324
-      - 2223
-      - 2122
+    seasons: *football_data_seasons
+  
+  - source: football-data
+    league: League-One
+    seasons: *football_data_seasons
+  
+  - source: football-data
+    league: League-Two
+    seasons: *football_data_seasons
+  
+  - source: football-data
+    league: National-League
+    seasons: *football_data_seasons
+  
+  - source: football-data
+    league: Belgian-Pro-League
+    seasons: *football_data_seasons
+  
+  - source: football-data
+    league: Bundesliga
+    seasons: *football_data_seasons
+  
+  - source: football-data
+    league: 2-Bundesliga
+    seasons: *football_data_seasons
 
+  - source: football-data
+    league: La-Liga
+    seasons: *football_data_seasons
 
+  - source: football-data
+    league: Segunda-Division
+    seasons: *football_data_seasons
+
+  - source: football-data
+    league: Ligue-1
+    seasons: *football_data_seasons
+
+  - source: football-data
+    league: Ligue-2
+    seasons: *football_data_seasons
+  
+  - source: football-data
+    league: Super-League-Greece
+    seasons: *football_data_seasons
+  
+  - source: football-data
+    league: Eredivisie
+    seasons: *football_data_seasons
+
+  - source: football-data
+    league: Serie-A
+    seasons: *football_data_seasons
+
+  - source: football-data
+    league: Serie-B
+    seasons: *football_data_seasons
+
+  - source: football-data
+    league: Primeira-Liga
+    seasons: *football_data_seasons
+
+  - source: football-data
+    league: Scottish-Premiership
+    seasons: *football_data_seasons
+
+  - source: football-data
+    league: Scottish-Championship
+    seasons: *football_data_seasons
+
+  - source: football-data
+    league: Super-Lig
+    seasons: *football_data_seasons
+
+# SOCCERSTATS
   - source: soccerstats
     league: Premier-League
     seasons:
@@ -27,5 +98,95 @@ jobs:
 
   - source: soccerstats
     league: Championship
+    seasons:
+      - latest
+  
+  - source: soccerstats
+    league: League-One
+    seasons:
+      - latest
+  
+  - source: soccerstats
+    league: League-Two
+    seasons:
+      - latest
+  
+  - source: soccerstats
+    league: National-League
+    seasons:
+      - latest
+  
+  - source: soccerstats
+    league: Belgian-Pro-League
+    seasons:
+      - latest
+  
+  - source: soccerstats
+    league: Bundesliga
+    seasons:
+      - latest
+  
+  - source: soccerstats
+    league: 2-Bundesliga
+    seasons:
+      - latest
+
+  - source: soccerstats
+    league: La-Liga
+    seasons:
+      - latest
+
+  - source: soccerstats
+    league: Segunda-Division
+    seasons:
+      - latest
+
+  - source: soccerstats
+    league: Ligue-1
+    seasons:
+      - latest
+
+  - source: soccerstats
+    league: Ligue-2
+    seasons:
+      - latest
+  
+  - source: soccerstats
+    league: Super-League-Greece
+    seasons:
+      - latest
+  
+  - source: soccerstats
+    league: Eredivisie
+    seasons:
+      - latest
+
+  - source: soccerstats
+    league: Serie-A
+    seasons:
+      - latest
+
+  - source: soccerstats
+    league: Serie-B
+    seasons:
+      - latest
+
+  - source: soccerstats
+    league: Primeira-Liga
+    seasons:
+      - latest
+
+  - source: soccerstats
+    league: Scottish-Premiership
+    seasons:
+      - latest
+
+  - source: soccerstats
+    league: Scottish-Championship
+    seasons:
+      - latest
+
+  - source: soccerstats
+    league: Super-Lig
     seasons:
       - latest
