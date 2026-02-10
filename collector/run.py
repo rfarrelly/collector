@@ -7,6 +7,7 @@ from registry.jobs import load_jobs
 from scrapers.football_data import FootballDataScraper
 from scrapers.soccerstats import SoccerStatsScraper
 from scrapers.base import Storage
+from common.file_helpers import combine_files
 
 leagues = load_leagues("collector/config/leagues.yaml")
 sources = load_sources("collector/config/sources.yaml")
@@ -78,16 +79,17 @@ def run_scraper(source_name: str, season_id: str = None):
 
 def main():
     if len(sys.argv) > 1:
-        data_source = sys.argv[1]
-        if data_source not in [s for s in sources.keys()]:
-            print(f"[FAIL] Invalid source")
-            return 0
+        mode = sys.argv[1]
+    else:
+        print(f"[FAIL] No mode provided")
 
     # Commands
-    if len(sys.argv) == 2:
-        run_scraper(source_name=data_source)
-    elif len(sys.argv) == 3:
-        run_scraper(source_name=data_source, season_id=sys.argv[2])
+    if mode == "get_data" and len(sys.argv) == 3:
+        run_scraper(source_name=sys.argv[2])
+    elif mode == "get_data" and len(sys.argv) == 4:
+        run_scraper(source_name=sys.argv[2], season_id=sys.argv[3])
+    elif mode == "combine_data":
+        combine_files(path="DATA/soccerstats")
     else:
         print(f"[WARN] Unknown command")
 
