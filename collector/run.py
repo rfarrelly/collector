@@ -80,18 +80,15 @@ def run_scraper(source_name: str, season_id: str = None):
 def main():
     if len(sys.argv) > 1:
         mode = sys.argv[1]
-    else:
-        print(f"[FAIL] No mode provided")
-
-    # Commands
-    if mode == "get_data" and len(sys.argv) == 3:
-        run_scraper(source_name=sys.argv[2])
-    elif mode == "get_data" and len(sys.argv) == 4:
-        run_scraper(source_name=sys.argv[2], season_id=sys.argv[3])
-    elif mode == "combine_data":
-        combine_files(path="DATA/soccerstats")
-    else:
-        print(f"[WARN] Unknown command")
+        # Commands
+        if mode == "get_data":
+            run_scraper(source_name=sys.argv[2])
+        elif mode == "get_data":
+            run_scraper(source_name=sys.argv[2], season_id=sys.argv[3])
+        elif mode == "combine_data":
+            combine_files(path="DATA/soccerstats")
+        else:
+            print(f"[WARN] Unknown mode {mode}")
 
 
 if __name__ == "__main__":

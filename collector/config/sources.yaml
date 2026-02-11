@@ -1,7 +1,10 @@
 football-data:
   base_url: https://www.football-data.co.uk/mmz4281
-  file_pattern: "{season}/{league_code}.csv"
+  file_patterns: 
+    - "{season}/{league_code}.csv"
 
 soccerstats:
   base_url: https://www.soccerstats.com
-  file_pattern: "" # Unused by logic, but required by model schema
+  file_patterns: 
+    - "results.asp?league={league_id}" # fixtures
+    - "/table.asp?league={league_id}&tid=rp" # PPI

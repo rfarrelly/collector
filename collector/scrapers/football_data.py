@@ -6,10 +6,9 @@ class FootballDataScraper:
         self.source = source
 
     def build_url(self, external_id, season):
-        # Uses external_id passed from the runner
         return (
             f"{self.source.base_url}/"
-            f"{self.source.file_pattern.format(
+            f"{self.source.file_patterns[0].format(
                 season=season,
                 league_code=external_id
             )}"

@@ -29,12 +29,21 @@ class SoccerStatsScraper:
             "ukraine",
         ]
 
+    def build_url(self, league_id, pattern_id):
+        return (
+            f"{self.source.base_url}/"
+            f"{self.source.file_patterns[pattern_id].format(
+                league_id=league_id
+            )}"
+        )
+
     def _sleep(self):
         delay = random.randint(5, 10)
         time.sleep(delay)
 
     def get_ppi_tables(self, league_id):
-        url = f"{self.source.base_url}/table.asp?league={league_id}&tid=rp"
+        url = self.build_url(league_id=league_id, pattern_id=1)
+        # url = f"{self.source.base_url}/table.asp?league={league_id}&tid=rp"
         res = requests.get(url, headers=self.headers, impersonate="safari_ios")
 
         df = pd.read_html(res.content)[11].drop(
@@ -62,7 +71,10 @@ class SoccerStatsScraper:
         return df
 
     def get_fixtures(self, league_id):
-        url = f"{self.source.base_url}/results.asp?league={league_id}"
+        # url = f"{self.source.base_url}/results.asp?league={league_id}"
+        url = self.build_url(league_id=league_id, pattern_id=0)
+        print(f"[{self.source.name}] Fetching {url}...")
+
         res = requests.get(url, headers=self.headers, impersonate="safari_ios")
         idx = 9 if league_id in self.alt_indices else 10
 
