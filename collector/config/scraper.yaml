@@ -8,6 +8,13 @@ common:
     - 2223
     - 2122
 
+  fbref_seasons: &fbref_seasons
+    - "2025-2026"
+    - "2024-2025"
+    - "2023-2024"
+    - "2022-2023"
+    - "2021-2022"
+
 # FOOTBALL-DATA.CO.UK
 jobs:
   - source: football-data
@@ -190,3 +197,84 @@ jobs:
     league: Super-Lig
     seasons:
       - latest
+  
+  # FBREF
+  - source: fbref
+    league: Premier-League
+    seasons: *fbref_seasons
+  
+  - source: fbref
+    league: Championship
+    seasons: *fbref_seasons
+  
+  - source: fbref
+    league: League-One
+    seasons: *fbref_seasons
+  
+  - source: fbref
+    league: League-Two
+    seasons: *fbref_seasons
+  
+  - source: fbref
+    league: National-League
+    seasons: *fbref_seasons
+  
+  - source: fbref
+    league: Belgian-Pro-League
+    seasons: *fbref_seasons
+  
+  - source: fbref
+    league: Bundesliga
+    seasons: *fbref_seasons
+  
+  - source: fbref
+    league: 2-Bundesliga
+    seasons: *fbref_seasons
+
+  - source: fbref
+    league: La-Liga
+    seasons: *fbref_seasons
+
+  - source: fbref
+    league: Segunda-Division
+    seasons: *fbref_seasons
+
+  - source: fbref
+    league: Ligue-1
+    seasons: *fbref_seasons
+
+  - source: fbref
+    league: Ligue-2
+    seasons: *fbref_seasons
+  
+  - source: fbref
+    league: Super-League-Greece
+    seasons: *fbref_seasons
+  
+  - source: fbref
+    league: Eredivisie
+    seasons: *fbref_seasons
+
+  - source: fbref
+    league: Serie-A
+    seasons: *fbref_seasons
+
+  - source: fbref
+    league: Serie-B
+    seasons: *fbref_seasons
+
+  - source: fbref
+    league: Primeira-Liga
+    seasons: *fbref_seasons
+
+  - source: fbref
+    league: Scottish-Premiership
+    seasons: *fbref_seasons
+
+  - source: fbref
+    league: Scottish-Championship
+    seasons: *fbref_seasons
+
+  - source: fbref
+    league: Super-Lig
+    seasons: *fbref_seasons

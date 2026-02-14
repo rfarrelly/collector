@@ -1,10 +1,15 @@
 football-data:
   base_url: https://www.football-data.co.uk/mmz4281
   file_patterns: 
-    - "{season}/{league_code}.csv"
+    - "{season}/{league_code}.csv" # historical
 
 soccerstats:
   base_url: https://www.soccerstats.com
   file_patterns: 
     - "results.asp?league={league_id}" # fixtures
-    - "/table.asp?league={league_id}&tid=rp" # PPI
+    - "/table.asp?league={league_id}&tid=rp" # historical PPI
+
+fbref:
+  base_url: https://fbref.com/en/comps
+  file_patterns:
+    - "{league_code}/{season}/schedule/{season}-{league_id}-Scores-and-Fixtures" # historical
