@@ -9,8 +9,9 @@ wheels/
 # Virtual environments
 .venv
 
-# OS Files
+# Files
 .DS_Store
+.csv
 
 # Project files and folders
 data/
