@@ -23,7 +23,7 @@ mappings = {}
 mapping_dir = Path("collector/config/mappings")
 
 
-def run_scraper(source_name: str, season_id: str = None):
+def run_scraper(source_name: str, season_id: str = None, league_id: str = None):
     mapping_file = mapping_dir / f"{source_name}.yaml"
     if mapping_file.exists():
         with open(mapping_file) as f:
@@ -32,7 +32,10 @@ def run_scraper(source_name: str, season_id: str = None):
         print(f"[WARN] No mapping file found for {source_name}")
         mappings[source_name] = {}
 
-    filtered_jobs = [j for j in jobs if j.source == source_name]
+    filtered_jobs = [j for j in jobs if (j.source == source_name)]
+
+    if league_id:
+        filtered_jobs = [j for j in filtered_jobs if j.league == league_id]
 
     for job in filtered_jobs:
 
@@ -81,10 +84,12 @@ def main():
     if len(sys.argv) > 1:
         mode = sys.argv[1]
         # Commands
-        if mode == "get_data":
+        if mode == "get_all_data":
             run_scraper(source_name=sys.argv[2])
-        elif mode == "get_data":
+        elif mode == "get_data_by_season":
             run_scraper(source_name=sys.argv[2], season_id=sys.argv[3])
+        elif mode == "get_data_by_league":
+            run_scraper(source_name=sys.argv[2], league_id=sys.argv[3])
         elif mode == "combine_data":
             combine_files(path="DATA/soccerstats")
         else:
