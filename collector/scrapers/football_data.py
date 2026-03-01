@@ -30,7 +30,6 @@ class FootballDataScraper:
         df["Date"] = pd.to_datetime(df["Date"], dayfirst=True, errors="coerce")
         df = df.dropna(subset=["Date"])
 
-        df["Week"] = df["Date"].dt.isocalendar().week
         df["Day"] = df["Date"].dt.day_name()
         df["Date"] = df["Date"].dt.strftime("%Y-%m-%d")
 
